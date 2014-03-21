@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: betastore_development
+
+test:
+  adapter: postgresql
+  database: betastore_test

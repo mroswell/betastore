@@ -1,0 +1,11 @@
+# cheap:
+#   total_amount: 4
+# expensive:
+#   total_amount: 42
+
+one:
+  total_amount: 14
+two:
+  total_amount: 14
+three:
+  total_amount: 14

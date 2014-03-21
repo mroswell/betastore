@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Betastore</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div style="margin: 0 auto; text-align: center">
+    <%= image_tag "logo.jpg", width: 600 %>
+    <%= yield %>
+  </div>
+</body>
+</html>
+
