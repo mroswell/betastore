@@ -3,7 +3,7 @@ require 'test_helper'
 # Customer - name exists, email exists and is unique
 
 class CustomerTest < ActiveSupport::TestCase
-  def test_has_name
+  def test_customer_has_name
     customer = Customer.new(email: 'test')
     assert_equal false, customer.save,
     customer.errors.full_messages.join(', ')
