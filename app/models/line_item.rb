@@ -5,8 +5,11 @@ class LineItem < ActiveRecord::Base
   before_validation :set_price
   after_save :increment_order_total_amount
 
+  validates :order_id, presence: true
+  validates :product_id, presence: true
+
   def set_price
-    self.price = product.price
+    self.price = Product.price
   end
 
   def total_price

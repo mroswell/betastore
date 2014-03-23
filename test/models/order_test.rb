@@ -16,7 +16,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 42, Order.total_revenue
   end
 
-  # test "the truth" do
-  #   assert true
-  # end
+ # customer_id exists, credit_card_id exists
+ # and the credit card belongs to the customer placing the order
+
+  def customer_id_exists
+    order = Order.new
+    assert_equal false, order.save
+    # assert_equal ["can't be blank"],
+    assert order.errors[:customer_id].include? ("can't be blank")
+  end
 end

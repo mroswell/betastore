@@ -3,6 +3,11 @@ class Order < ActiveRecord::Base
   has_many :line_items
   has_many :products, :through => :line_items
 
+  # validates customer_id exists, credit_card_id exists and
+  # the credit card belongs to the customer placing the order
+  #validates :customer_id, presence: true
+  #validates :credit_card_id, presence: true
+
  # sum = 0, li=line_items[0]
  # sum = 9.99, li = line_items[1]
  # sum = 29.99, li = line_items[2]
