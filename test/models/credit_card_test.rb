@@ -49,7 +49,7 @@ class CreditCardTest < ActiveSupport::TestCase
       card = CreditCard.new(card_number: '123451234512346', expiration_date: '12/2008')
       # month_year = card.expiry(card.expiration_date)
       # puts month_year
-      expiry_date = Date.strptime(card.expiration_date,'%m/%y')
+      expiry_date = Date.strptime(card.expiration_date,'%m/%Y')
       puts expiry_date
       assert Time.now < expiry_date
       # time
