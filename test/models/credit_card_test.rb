@@ -26,7 +26,7 @@ class CreditCardTest < ActiveSupport::TestCase
   end
 
   def test_card_number_all_numbers
-    card1 = CreditCard.new(card_number: 'a12345a12345a123')
+    card1 = CreditCard.new(card_number: 'a12345a12345a123', expiration_date: '12/2018')
     assert_equal false, card1.save
     #assert_equal ["is too short (minimum is 15 characters)"],
     #card1.errors[:card_number]
@@ -49,9 +49,9 @@ class CreditCardTest < ActiveSupport::TestCase
       card = CreditCard.new(card_number: '123451234512346', expiration_date: '12/2008')
       # month_year = card.expiry(card.expiration_date)
       # puts month_year
-      expiry_date = Date.strptime(card.expiration_date,'%m/%Y')
-      puts expiry_date
-      assert Time.now < expiry_date
+      #expiry_date = Date.strptime(card.expiration_date,'%m/%Y')
+      puts expiration_date
+      assert card.expiration_date > Time.now
       # time
       assert_equal false, card.save
   end

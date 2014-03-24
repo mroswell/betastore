@@ -38,7 +38,6 @@ shirt = Product.create(name: 'T-Shirt', price: 19.99, img_url: "/images/products
 sticker = Product.create(name: 'Betamore Sticker', price: 2.00, img_url: "/images/products/sticker.jpg", categories: [misc])
 
 Rails.logger.info "putting hat into some categories"
-clothing.products << hat
 headware.products << hat
 
 puts "hat categories #{hat.categories.map{|c| c.name}}"

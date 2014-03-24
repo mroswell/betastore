@@ -9,7 +9,7 @@ class LineItem < ActiveRecord::Base
   validates :product_id, presence: true
 
   def set_price
-    self.price = Product.price
+    self.price = product.price
   end
 
   def total_price
