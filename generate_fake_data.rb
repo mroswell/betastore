@@ -22,7 +22,8 @@ product_ids = Product.pluck(:id)
 
 
   cc = customer.credit_cards.create!(
-    card_number: Faker::Business.credit_card_number    )
+    card_number: Faker::Business.credit_card_number,
+    expiration_date: '12/2020')
 
     # expires_on: Faker::Business.credit_card_expiry_date
          puts "created customer #{cc.card_number}"
