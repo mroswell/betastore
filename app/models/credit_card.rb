@@ -13,8 +13,11 @@ class CreditCard < ActiveRecord::Base
           date: { after: Time.now }
   # create a writer method to make this work
 
-  def expires_on=(expiration_date)
+  # def expires_on=(expiration_date)
+  #   self.expires_on = Date.strptime(expiration_date,'%m/%Y')+1.month
+  # end
+
+  def expires_on
     self.expires_on = Date.strptime(expiration_date,'%m/%Y')+1.month
   end
-
 end

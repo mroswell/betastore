@@ -15,6 +15,16 @@ class CreditCardTest < ActiveSupport::TestCase
     # end
   end
 
+  def test_card_complete
+    card1 = CreditCard.new(card_number: '123451234523456',  expiration_date: '11/2017')
+    assert card1.valid?, card1.errors.full_messages.inspect
+    assert_equal true, card1.save
+    # assert_equal ["is too short (minimum is 15 characters)"],
+    # card1.errors[:card_number]
+    # assert_block do
+    #   card1.errors[:card_number].any? { |msg| msg == "can't be blank" }
+    # end
+  end
   def test_card_number_gte_15_chars
     card1 = CreditCard.new(card_number: '12345',  expiration_date: '11/2018')
     assert_equal false, card1.save
