@@ -8,12 +8,12 @@ class OrderTest < ActiveSupport::TestCase
   # end
 
   def test_total_revenue
-    assert_equal 42, order.total_revenue
+    assert_equal 42, Order.total_revenue
   end
 
   def test_first
     # assert_equal 42, Order.first.total_amount
-    assert_equal 42, order.total_revenue
+    assert_equal 42, Order.total_revenue
   end
 
  # customer_id exists, credit_card_id exists

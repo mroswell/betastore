@@ -8,8 +8,9 @@ class CreditCard < ActiveRecord::Base
   validates :card_number, numericality: true
   validates :expiration_date, format: { with: /\A\d{2}\/\d{4}\z/, message: "Only MM/YYYY allowed" }
   #validates :expires_on, numericality { greater_than: Time.now }
-  validates :expires_on, :numericality => {:greater_than => Time.now}
-
+#  validates :expires_on, :numericality => {:greater_than => Time.now}
+  validates :expiration_on,
+          date: { before: Time.now }
   # create a writer method to make this work
 
   def expires_on=(expiration_date)
