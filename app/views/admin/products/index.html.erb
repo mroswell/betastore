@@ -1,0 +1,27 @@
+
+<% if flash[:notice].present? %>
+  <div style="color:green"><%= flash[:notice] %></div>
+<% end %>
+<h1>Products</h1>
+      <p><%= link_to "New Product", new_admin_product_path, class: 'btn btn-primary' %></p>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Created At</th>
+    <th>Action</th>
+  </tr>
+  <% for product in @products %>
+    <tr id="product-<%= product.id %>">
+      <td><%= link_to product.id, admin_product_path(product) %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.created_at %></td>
+      <td><%= link_to "edit", edit_admin_product_path(product) %></td>
+      <td><%= link_to "Delete", admin_product_path(product), method: :delete, confirm: "Are you sure?"%></td>
+    </tr>
+  <% end %>
+</table>
+
+

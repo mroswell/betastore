@@ -5,7 +5,7 @@ class CreditCardTest < ActiveSupport::TestCase
 # and has only numbers, the expiration_date
 # in the format of 'MM/YYYY' and is a date in the future
   def test_card_number_exists
-    card = CreditCard.new
+    card = CreditCard.new(expiration_date: '07/2016')
     assert_equal false, card.save
     # assert_equal ["can't be blank"],
     assert card.errors[:card_number].include? ("can't be blank")
@@ -65,6 +65,10 @@ class CreditCardTest < ActiveSupport::TestCase
       #assert card.expires_on > Time.now
       # time
       assert_equal false, card.save
+  end
+
+  def test_cc_belongs_to__customer_placing_the_order
+
   end
 end
 

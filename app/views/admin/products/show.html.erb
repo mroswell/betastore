@@ -1,0 +1,65 @@
+<!-- <table>
+<tr>
+  <th>name</th>
+  <th>value</th>
+  </tr>
+
+<% params.each do |name, value| %>
+    <tr><td><%= name %></td><td><%= value.inspect %></td></tr>
+<% end %>
+</table> -->
+
+<!-- <table>
+<tr>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Image URL</th>
+  <th>Created at</th>
+  </tr>
+  <tr>
+  <td><%= @product.id%></td>
+  <td><%= @product.name%></td>
+  <td><%= @product.price%></td>
+  <td><%= @product.img_url%></td>
+  <td><%= @product.created_at%></td>
+  </tr>
+  </table> -->
+
+<ol class="breadcrumb">
+  <li><%= link_to "Products", admin_products_path %>
+</li>
+  <li class="active"><%= @product.name %></li>
+</ol>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @product.id%></td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td><%= @product.name%></td>
+  </tr>
+  <tr>
+    <th>Price</th>
+    <td><%= @product.price%></td>
+  </tr>
+  <tr>
+    <th>Image URL</th>
+    <td><%= image_tag @product.img_url, alt: @product.name %>
+
+    </td>
+  </tr>
+  <tr>
+    <th>Created</th>
+    <td><%= time_ago_in_words @product.created_at %> ago,
+<%= @product.created_at.strftime('%A, %B %d, %Y %I:%M %p %Z') %></td>
+
+  </tr>
+</table>
+<p>
+<div class="btn-group">
+<%= link_to "Edit", edit_admin_product_path, class: 'btn btn-default' %>
+<%= link_to "Delete", admin_product_path, class: 'btn btn-danger', method: :delete, confirm: "Are you sure?"%>
+</div>

@@ -19,6 +19,8 @@ end
 
 group :test do
   gem 'minitest-colorize'
+  gem 'capybara'
+  gem 'launchy'
 end
 
   # bundle exec rake doc:rails generates the API under doc/api.
