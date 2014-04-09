@@ -28,6 +28,9 @@ GEM
     addressable (2.3.5)
     arel (4.0.2)
     atomic (1.1.15)
+    bugsnag (1.8.7)
+      httparty (>= 0.6, < 1.0)
+      multi_json (~> 1.0)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -50,6 +53,9 @@ GEM
       i18n (~> 0.5)
     hike (1.2.3)
     hirb (0.7.1)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -69,10 +75,13 @@ GEM
     minitest-colorize (0.0.5)
       minitest (>= 2.0)
     multi_json (1.8.4)
+    multi_xml (0.5.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
+    puma (2.8.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -132,6 +141,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bugsnag
   capybara
   coffee-rails (~> 4.0.0)
   date_validator
@@ -142,6 +152,7 @@ DEPENDENCIES
   launchy
   minitest-colorize
   pg
+  puma
   rails (= 4.0.3)
   rails_12factor
   sass-rails (~> 4.0.0)

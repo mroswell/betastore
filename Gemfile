@@ -11,9 +11,11 @@ gem 'rails', '4.0.3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'date_validator'
-
+gem 'puma'
+gem 'bugsnag'
 group :production do
   gem 'rails_12factor'
+
 end
 
 group :development do
