@@ -1,8 +1,15 @@
 class Admin::ProductsController < ApplicationController
   layout 'admin'
+
+  before_action :require_login
+
   def index
-    @products = Product.order('name')
     #render layout:'admin'
+  # if logged_in?
+   @products = Product.order('name')
+  # else
+  #   redirect_to admin_login_path, alert: 'Please log in to continue'
+  # end
   end
 
   # def show
@@ -50,6 +57,18 @@ class Admin::ProductsController < ApplicationController
   # protected - can't be called as an action. They are used by actions.
   protected
   def product_params
-    params.require(:product).permit!
+    # params.require(:product).permit!
+    params.require(:product).permit(:name, :price)
+
   end
+
+  def logged_in?
+    session[:user_id].present?
+  end
+
+  def require_login
+  unless logged_in?
+    redirect_to admin_login_path, danger: 'Please log in to continue'
+  end
+end
 end

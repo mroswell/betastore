@@ -13,6 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'date_validator'
 gem 'puma'
 gem 'bugsnag'
+gem 'bcrypt-ruby'
+gem 'brakeman', require: false
+
 group :production do
   gem 'rails_12factor'
 

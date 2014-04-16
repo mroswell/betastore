@@ -77,4 +77,19 @@ Betastore::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.default_url_options = {
+  host: "arcane-depths-1052.herokuapp.com"
+}
+
+  config.action_mailer.smtp_settings = {
+    port:           ENV['MAILGUN_SMTP_PORT'],
+    address:        ENV['MAILGUN_SMTP_SERVER'],
+    user_name:      ENV['MAILGUN_SMTP_LOGIN'],
+    password:       ENV['MAILGUN_SMTP_PASSWORD'],
+    domain:         'serene-thicket-5859.herokuapp.com',
+    authentication: :plain,
+  }
+  config.action_mailer.delivery_method = :smtp
+
 end
