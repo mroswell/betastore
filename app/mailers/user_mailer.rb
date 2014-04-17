@@ -21,4 +21,10 @@ class UserMailer < ActionMailer::Base
   def welcome
     UserMailer.welcome(User.last)
   end
+
+  #   def welcome(user)
+  #   @name = user.email.split('@').first
+
+  #   mail to: user.email
+  # end
 end
