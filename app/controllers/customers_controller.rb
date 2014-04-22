@@ -19,15 +19,10 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    respond_to do |format|
-     if @customer.save
+    if @customer.save
       redirect_to root_path, notice: "Customer was successfully added"
-      #   format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-      #   format.json { render action: 'show', status: :created, location: @customer }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
+    else
+      render action: 'new'
     end
   end
 
@@ -54,6 +49,16 @@ class CustomersController < ApplicationController
       format.json { head :no_content }
     end
   end
+    def verify
+      customer = Customer.verify(params[:token])
+
+      if customer
+        redirect_to root_path, notice: "Your account is now confirmed."
+      else
+        redirect_to root_path, alert: "The verification link is invalid."
+
+      end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -64,18 +69,6 @@ class CustomersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       params.require(:customer).permit(:name, :email, :password, :password_confirmation)
-    end
-
-    def verify
-      customer = Customer.verify(params[:token])
-
-      if customer
-        redirect_to root_path, notice: "Your account is now confirmed."
-      else
-        redirect_to root_path, alert: "The verification link is invalid."
-
-      end
-
     end
 
 end

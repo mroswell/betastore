@@ -1,5 +1,5 @@
-<h1>CustomerMailer#welcome</h1>
+<h1>Hello <%= @customer.name %>, </h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/customer_mailer/welcome.html.erb
+  Hi, Welcome to Betastore. Visit <%= link_to 'this link', verify_customer_url(@token) %>
 </p>
