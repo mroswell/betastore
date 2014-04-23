@@ -28,6 +28,7 @@ Betastore::Application.routes.draw do
 
     get  '/login' => 'logins#new', as: 'logins'
     post '/login' => 'logins#create'
+    delete '/logout'=> 'logins#destroy', as: 'logout'
 
   resources :subscriptions
   # root :to => 'subscriptions#new'

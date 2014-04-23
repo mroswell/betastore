@@ -13,4 +13,10 @@ class LoginsController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    session[:customer_id] = nil
+    redirect_to :back
+  end
+
 end
