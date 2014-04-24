@@ -34,4 +34,6 @@ Betastore::Application.routes.draw do
   # root :to => 'subscriptions#new'
 
   get '/products' => 'products#index'
+  get '/product/:id' => 'products#show',  as: 'product'
+
 end

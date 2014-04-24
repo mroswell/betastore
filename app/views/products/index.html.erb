@@ -1,11 +1,9 @@
 <% if logged_in? %>
   Welcome <%= current_customer.name %>
   <%= link_to "Logout", logout_path, method: :delete %>
-
 <% else %>
-<%= link_to "Login", login_path %>
-<%= link_to "Sign Up", sign_up_path %>
-
+  <%= link_to "Login", login_path %>
+  <%= link_to "Sign Up", sign_up_path %>
 <% end %>
 
 <h1>This is a list of products</h1>
@@ -15,3 +13,23 @@
   <% end %>
 </ul>
 
+
+
+<div class="row">
+  <%= form_tag({}, method: 'get', role: 'form', class: 'form-inline') do %>
+    <div class="form-group col-sm-3">
+      <%= text_field_tag :q, params[:q], class: 'form-control col-sm-2' %>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  <% end %>
+</div>
+
+<% for product in @products %>
+  <div class="col-sm-4">
+    <%= link_to product do %>
+      <%= image_tag product.img_url, width: 200 %>
+      <br/>
+      <%= product.name %>
+    <% end %>
+  </div>
+<% end %>

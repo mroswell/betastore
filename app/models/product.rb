@@ -8,5 +8,9 @@ class Product < ActiveRecord::Base
   validates :name, presence: true
 #  validates :name, :format => {:with => /a/i, :message => "product must have an a in it."}
   validates :price, presence: true
-  validates :price, numericality: { greater_than: 0 }
+  # validates :price, numericality: { greater_than: 0 }
+
+  validates :price, presence: true, numericality: { greater_than: 0, allow_blank: true }
+
+  scope :search, -> (q) { where('name ilike ?', "%#{q}%") }
 end
